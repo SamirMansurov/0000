@@ -1,0 +1,220 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.form-container {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+}
+
+.registration-form,
+.sign-form ,
+.transaction-form,
+.wallet-form{
+    display: flex;
+    flex-direction: column;
+}
+
+.registration-form h2,
+.sign-form h2 {
+    margin-bottom: 1.5rem;
+    font-size: 24px;
+    color: #333;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #555;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+button {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #0056b3;
+    cursor: pointer;
+}
+
+.login-link {
+    margin-top: 1rem;
+    text-align: center;
+    color: #555;
+}
+
+.login-link a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.login-link a:hover {
+    text-decoration: underline;
+}
+.header{
+    background: rgba(240, 240, 240, 1);
+    width: 100%;
+    display: flex;
+    position: absolute;
+    top: 0;
+    .header_box{
+        width: 1200px;
+        padding: 25px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        .left,
+        .right{
+            display: flex;
+            gap: 20px;
+            .header_text,
+            .header_img{
+                font-family: Gilroy;
+                font-size: 16px;
+                font-weight: 900;
+                line-height: 19.41px;
+                color: black;
+                text-decoration: none;
+                cursor: pointer;
+            }
+        }
+    }
+}
+.container{
+    width: 1200px;
+    margin: 100px auto;
+    .link_main{
+        font-family: Gilroy;
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 19.6px;
+        text-align: left;
+        color: rgba(0, 71, 255, 1);
+    }
+    .welcome{
+        font-family: Gilroy;
+        font-size: 40px;
+        font-weight: 700;
+        line-height: 50px;
+        text-align: left;
+        margin-bottom: 20px;
+    }
+    .email_main{
+        font-family: Gilroy;
+        font-size: 18px;
+        font-weight: 700;
+        line-height: 10px;
+        text-align: left;
+        color: rgba(0, 71, 255, 1);
+    }
+    .my_cards{
+        margin-top: 70px;
+        margin-bottom: 20px;
+        .wallets,
+        .wallets_all{
+            width: 1200px;
+            display: flex;
+            gap: 15px;
+            .card{
+                width: 282px;
+                height: 160px;
+                border-radius: 15px;
+                opacity: 0px;
+                background: linear-gradient(84.37deg, #20BF55 2.27%, #01BAEF 92.26%);
+                padding: 20px;
+                .name_card{
+                    font-family: Gilroy;
+                    font-size: 24px;
+                    font-weight: 500;
+                    line-height: 29.11px;
+                    text-align: left;
+                    color: white;
+                    margin-bottom: 50px;
+                }
+                .currently{
+                    font-family: Gilroy;
+                    font-size: 15px;
+                    font-weight: 500;
+                    line-height: 29.11px;
+                    text-align: left;
+                    color: white;
+                }
+            }
+        }
+        .card_title{
+            font-family: Gilroy;
+            font-size: 24px;
+            font-weight: 500;
+            line-height: 10px;
+            text-align: left;
+            margin-bottom: 20px;
+        }
+        
+    }
+    .transaction,
+    .transaction_all{
+        .transaction_title{
+            font-family: Gilroy;
+            font-size: 24px;
+            font-weight: 500;
+            line-height: 29.11px;
+            text-align: left;
+            margin-top: 60px;
+        }
+        .transaction_data{
+            width: 1200px;
+            margin-top: 20px;
+            thead{
+                tr{
+                    th{
+                        font-family: Gilroy;
+                        font-size: 14px;
+                        font-weight: 600;
+                        line-height: 17.15px;
+                        text-align: left;
+                        color: rgba(185, 192, 209, 1);
+                    }
+                }
+            }
+            .place{
+                margin-bottom: 20px;
+                tr{
+                    padding: 5px;
+                    td{
+                        font-family: Gilroy;
+                        font-size: 14px;
+                        font-weight: 500;
+                        line-height: 16.98px;
+                        text-align: left;
+                        color: black;
+                        padding: 10px 0 10px ;
+                    }
+                }
+            }
+        }
+    }
+}

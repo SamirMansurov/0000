@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="stylesheet" href="/scss/style.scss">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script defer src="/lib/police.js"></script>
+    <title>Главная</title>
+</head>
+
+<body>
+    
+    <div class="container">
+        <h2 class="welcome">Добро пожаловать, <span id="user_name"></span></h2>
+        <p class="email_main" id="user_email"></p>
+        <section class="my_cards">
+            <p class="card_title">Мои карты</p>
+            <div class="wallets">
+
+            </div>
+        </section>
+        <a href="/pages/allwallets/" class="link_main">Смотреть все кошелки</a>
+        <secrion class="transaction">
+            <h3 class="transaction_title">Последние транзакции</h3>
+            <table class="transaction_data">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Отправлено с кошелька</th>
+                        <th>Категория</th>
+                        <th>Сумма транзации</th>
+                        <th>Когда</th>
+                    </tr>
+                </thead>
+                <tbody class="place"></tbody>
+            </table>
+        </secrion>
+        <a href="/pages/alltransactions/" class="link_main">Смотреть все оплаты</a>
+    </div>
+    <script type="module" src="/main.js"></script>
+</body>
+
+</html>

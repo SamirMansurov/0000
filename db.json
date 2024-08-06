@@ -1,0 +1,129 @@
+{
+  "users": [
+    {
+      "id": "11a4",
+      "email": "ganievs.111@gmail.com",
+      "first-name": "Samir",
+      "last-name": "Ganiyev",
+      "password": "ssss"
+    },
+    {
+      "id": "fcb9",
+      "email": "dsarifkulo021@gmail.com",
+      "first-name": "Daler",
+      "last-name": "Sharifkulov",
+      "password": "1234Daler"
+    },
+    {
+      "id": "05f70323-39d5-4fd7-b820-c9bf39b80b07",
+      "createdAt": "2024-08-03T09:42:26.935Z",
+      "updatedAt": "2024-08-03T09:42:26.935Z",
+      "email": "samirmansurov078@gmail.com",
+      "first-name": "Samir",
+      "last-name": "Mansurov",
+      "password": "Samir1408"
+    },
+    {
+      "id": "a3ba1852-ef09-4c27-bdb4-34ef8a8fd938",
+      "createdAt": "2024-08-03T09:44:57.540Z",
+      "updatedAt": "2024-08-03T09:44:57.540Z",
+      "email": "samirmans08@gmail.com",
+      "first-name": "Samir",
+      "last-name": "2212",
+      "password": "123458765"
+    },
+    {
+      "id": "67007e21-52fa-4d34-afeb-08713e62115a",
+      "createdAt": "2024-08-06T05:50:21.399Z",
+      "updatedAt": "2024-08-06T05:50:21.399Z",
+      "email": "arthuepenradon09@gmail.com",
+      "first-name": "Alex",
+      "last-name": "Smith",
+      "password": "Alex4444"
+    }
+  ],
+  "wallets": [
+    {
+      "id": "93558e7a-0e88-4cf2-8210-aed10b601168",
+      "createdAt": "2024-08-01T05:29:59.603Z",
+      "updatedAt": "2024-08-01T05:29:59.603Z",
+      "userId": "11a4",
+      "wallet-name": "Relax",
+      "wallet-balance": "1000",
+      "currency": "USD"
+    },
+    {
+      "id": "0fa8a3ea-4a6f-463e-84fd-26d8c787cade",
+      "createdAt": "2024-08-01T05:34:16.268Z",
+      "updatedAt": "2024-08-01T05:34:16.268Z",
+      "userId": "11a4",
+      "wallet-name": "Business",
+      "wallet-balance": "1000",
+      "currency": "USD"
+    },
+    {
+      "id": "545fc750-ae67-4fdf-ba22-49620c866354",
+      "createdAt": "2024-08-03T05:59:44.146Z",
+      "updatedAt": "2024-08-03T05:59:44.146Z",
+      "userId": "fcb9",
+      "wallet-name": "DalerAka",
+      "wallet-balance": "100000",
+      "currency": "JPY"
+    },
+    {
+      "id": "38f92136-4cba-4107-b461-5a9b91e04404",
+      "createdAt": "2024-08-03T06:00:28.707Z",
+      "updatedAt": "2024-08-03T06:00:28.707Z",
+      "userId": "fcb9",
+      "wallet-name": "Daler teacher",
+      "wallet-balance": "100000",
+      "currency": "SUM"
+    },
+    {
+      "id": "567c89ec-dc8c-402e-ade1-b08545ee7145",
+      "createdAt": "2024-08-03T09:35:45.722Z",
+      "updatedAt": "2024-08-03T09:35:45.722Z",
+      "userId": "11a4",
+      "wallet-name": "Dubai",
+      "wallet-balance": "1515151",
+      "currency": "AED"
+    },
+    {
+      "id": "1d978480-2ab7-4ef3-8ed0-d4e0856baed6",
+      "createdAt": "2024-08-06T05:39:34.914Z",
+      "updatedAt": "2024-08-06T05:39:34.914Z",
+      "userId": "05f70323-39d5-4fd7-b820-c9bf39b80b07",
+      "wallet-name": "samir",
+      "wallet-balance": "10000"
+    }
+  ],
+  "transactions": [
+    {
+      "id": "46f74fb9-4dd6-47f4-aae4-4a8f2e809044",
+      "createdAt": "2024-08-03T05:32:02.875Z",
+      "updatedAt": "2024-08-03T05:32:02.875Z",
+      "userId": "11a4",
+      "wallet": "Business",
+      "total": "1000",
+      "cat": "business"
+    },
+    {
+      "id": "81fdddf6-ba68-4907-b45c-053b98161506",
+      "createdAt": "2024-08-03T06:03:06.841Z",
+      "updatedAt": "2024-08-03T06:03:06.841Z",
+      "userId": "fcb9",
+      "wallet": "DalerAka",
+      "total": "1000",
+      "cat": "business"
+    },
+    {
+      "id": "c482518c-22be-482d-851b-b0dc428d2665",
+      "createdAt": "2024-08-06T05:40:22.162Z",
+      "updatedAt": "2024-08-06T05:40:22.162Z",
+      "userId": "05f70323-39d5-4fd7-b820-c9bf39b80b07",
+      "wallet": "samir",
+      "total": "10000000000",
+      "cat": "t"
+    }
+  ]
+}
