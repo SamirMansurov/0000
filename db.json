@@ -95,6 +95,14 @@
       "userId": "05f70323-39d5-4fd7-b820-c9bf39b80b07",
       "wallet-name": "samir",
       "wallet-balance": "10000"
+    },
+    {
+      "id": "c4555118-e320-4aa8-8734-df3c70dd63e5",
+      "createdAt": "2024-08-06T08:27:07.873Z",
+      "updatedAt": "2024-08-06T08:27:07.873Z",
+      "userId": "05f70323-39d5-4fd7-b820-c9bf39b80b07",
+      "wallet-name": "VESa",
+      "wallet-balance": "1000000"
     }
   ],
   "transactions": [

@@ -1,49 +1,37 @@
 import { ApiCall } from "../../lib/http.request";
 
-const walletForm = document.forms.namedItem('wallet-form');
-const currencySelector = document.querySelector('#currency');
-const user = JSON.parse(localStorage.getItem('user'));
-const apiService = new ApiCall("http://localhost:8080");
+const form = document.forms.namedItem('wallet-form')
+const refId = JSON.parse(localStorage.getItem('user'))
+const apiCall = new ApiCall("http://localhost:8080")
+const bank_apiCall = new ApiCall("https://api.apilayer.com/fixer", "j2pLT7yrORYlBVoSvkYpj4dXnY4GaQJj")
 
-const fetchSymbols = async () => {
-    const response = await fetch('https://api.apilayer.com/fixer/symbols', {
-        method: "GET",
-        headers: {
-            apikey: "TGCgzIx4lrYPFz1bvQS4bX3QiLBodyDo"
-        }
-    });
-    return response.json();
-};
+const select = document.querySelector('select')
+const res = await bank_apiCall.getData('/symbols')
 
-const updateCurrencyOptions = async () => {
-    const data = await fetchSymbols();
-    currencySelector.innerHTML = "";
+select.innerHTML = ""
+for(let key in res.symbols) {
 
-    for (const [symbol, name] of Object.entries(data.symbols)) {
-        currencySelector.innerHTML += `
-            <option value="${symbol}">${symbol} : ${name}</option>
-        `;
-    }
-};
+    select.innerHTML += `
+        <option value="${key}"  >${key}: ${res.symbols[key]}</option>
+    `
+}
 
-updateCurrencyOptions();
+form.onsubmit = async (e) => {
+    e.preventDefault();
 
-walletForm.onsubmit = async (event) => {
-    event.preventDefault();
+    const fm = new FormData(e.target)
 
-    const formData = new FormData(event.target);
-
-    const walletDetails = {
+    const wallet = {
         id: crypto.randomUUID(),
         createdAt: new Date(),
         updatedAt: new Date(),
-        userId: user.id,
-    };
+        userId: refId.id,
+    }
 
-    formData.forEach((value, key) => walletDetails[key] = value);
+    fm.forEach((val, key) => wallet[key] = val)
 
-    await apiService.postData('/wallets', walletDetails);
+    await apiCall.postData('/wallets', wallet)
 
-    walletForm.reset();
-    window.location.href = '/';
-};
+    form.reset()
+    location.assign('/')   
+}

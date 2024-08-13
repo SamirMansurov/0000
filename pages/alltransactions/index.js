@@ -1,8 +1,7 @@
 import { Header } from "../../components/Header";
 import { reload } from "../../lib/utils";
-import { Transaction } from "../../components/Transaction";
 import { ApiCall } from "../../lib/http.request";
-
+import {Transaction} from "../../components/Tranjaction"
 const user = JSON.parse(localStorage.getItem('user'));
 const api = new ApiCall("http://localhost:8080");
 const addTransactionButton = document.querySelector('#add_transaction');

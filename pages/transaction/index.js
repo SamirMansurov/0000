@@ -1,44 +1,63 @@
 import { ApiCall } from "../../lib/http.request";
 import { reload } from "../../lib/utils";
 
-const transactionForm = document.forms.namedItem('transaction-form');
-const amountInput = document.querySelector('#total');
-const walletSelect = document.querySelector('#wallet');
-const apiService = new ApiCall("http://localhost:8080");
+const form = document.forms.namedItem('transaction-form')
+const total_inp = document.querySelector('#total')
+const select_wallet = document.querySelector('#wallet')
+const apiCall = new ApiCall("http://localhost:8080")
+const refId = JSON.parse(localStorage.getItem('user'))
+const res = await apiCall.getData('/wallets?userId=' + refId.id)
 
-const userInfo = JSON.parse(localStorage.getItem('user'));
-const userWallets = await apiService.getData('/wallets?userId=' + userInfo.id);
+function SelectWallet(item){
+    const option = new Option(item['wallet-name'], item.id)
 
-function createWalletOption(wallet) {
-    const option = document.createElement('option');
-    option.textContent = wallet["wallet-name"];
-    return option;
+    return option
 }
+reload(res,select_wallet,SelectWallet)
 
-reload(userWallets, walletSelect, createWalletOption);
-transactionForm.onsubmit = async (event) => {
-    event.preventDefault();
-    const formData = new FormData(event.target);
-    const transactionDetails = {
+form.onsubmit = async (e) => {
+    e.preventDefault();
+
+    const fm = new FormData(e.target)
+
+    const transaction = {
         id: crypto.randomUUID(),
         createdAt: new Date(),
         updatedAt: new Date(),
-        userId: userInfo.id,
-    };
-
-    formData.forEach((value, key) => transactionDetails[key] = value);
-    const walletInfo = await apiService.getData('/wallets?wallet-name=' + transactionDetails.wallet);
-    if (walletInfo.length <= 0) {
-        alert('Wallet not found!');
-        return;
+        userId: refId.id,
     }
 
-    const [walletFromDB] = walletInfo;
-    if (walletFromDB.total < amountInput.value) {
-        alert('Insufficient funds!');
-        return;
+    fm.forEach((val, key) => transaction[key] = val)
+    
+    const data = await apiCall.getData('/wallets/' + transaction.walletId)
+
+    delete data.id 
+
+    transaction.wallet = data
+
+    if(transaction.total > +data.balance || transaction.total < 0) {
+        total_inp.style.border = '2px solid red'
+        Toastify({
+            text: 'Insufficient funds!',
+            duration: 3000,
+            destination: "https://github.com/apvarun/toastify-js",
+            newWindow: true,
+            close: true,
+            gravity: "top", // `top` or `bottom`
+            position: "left", // `left`, `center` or `right`
+            stopOnFocus: true, // Prevents dismissing of toast on hover
+            style: {
+              background: "linear-gradient(to right, #ff0000, #ff3333)",
+            },
+            onClick: function(){} // Callback after click
+          }).showToast();
+        return
     }
-    await apiService.postData('/transactions', transactionDetails);
-    transactionForm.reset();
-    window.location.href = '/';
-};
+    const total = data.balance - transaction.total
+
+    await apiCall.patchData('/wallets/' + transaction.walletId, {balance: total})
+    await apiCall.postData('/transactions', transaction)
+
+    form.reset()
+    location.assign('/')
+}

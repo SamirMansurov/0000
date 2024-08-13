@@ -12,7 +12,7 @@ export function Header(item) {
     const logoutImage = document.createElement('img');
     
     headerElement.classList.add('header');
-    headerBox.classList.add('header_box');
+    headerBox.classList.add('header_box');          
     navLeft.classList.add('left');
     navRight.classList.add('right');
     linkHome.classList.add('header_text');

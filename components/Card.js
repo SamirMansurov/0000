@@ -1,20 +1,37 @@
 export function Card(item) {
-    const cardElement = document.createElement('div');
-    const cardName = document.createElement('p');
-    const totalBalance = document.createElement('p');
-    const currentCurrency = document.createElement('p');
+    const card = document.createElement('div')
+    const name_card = document.createElement('p')
+    const total = document.createElement('p')
+    const currently = document.createElement('p')
 
-    cardElement.classList.add('card');
-    cardName.classList.add('name_card');
-    currentCurrency.classList.add('currently');
-    totalBalance.classList.add('currently');
+    card.classList.add('card')
+    name_card.classList.add('name_card')
+    currently.classList.add('currently')
+    total.classList.add('currently')
 
-    cardName.innerHTML = item["wallet-name"];
-    currentCurrency.innerHTML = item.currency;
-    totalBalance.innerHTML = item["wallet-balance"] + ' | ' + item.currency;
+    card.style.background = `linear-gradient(84.37deg, ${getRGB()} 2.27%, ${getRGB()} 92.26%)`
 
-    cardElement.append(cardName, totalBalance, currentCurrency);
+    name_card.innerHTML = item["wallet-name"]
+    currently.innerHTML = item.currency
+    total.innerHTML = Number(item.balance).toLocaleString('us') + ' | ' + item.currency
+    card.append(name_card, total, currently)
+
+    card.onclick = () => {
+        location.assign('/pages/wallet_info/?id=' + item.id)
+    }
+
+    return card
+}
 
 
-    return cardElement
+function getRGB() {
+    function randomize() {
+        return Math.floor(Math.random() * 255)
+    }
+
+    let r = randomize(),
+        g = randomize(),
+        b = randomize();
+
+    return `rgb(${r},${g},${b})`
 }
